@@ -20,7 +20,7 @@ import com.example.Faculdade.service.CursoService;
 import jakarta.validation.Valid;
 
 @RestController
-@RequestMapping("/Curso")
+@RequestMapping("/curso")
 public class CursoController {
 
 	private final CursoService service;
@@ -32,12 +32,12 @@ public class CursoController {
 	@PostMapping
 	public ResponseEntity<CursoResponse> Criar(@RequestBody @Valid CursoRequestDto dto) {
 		CursoResponse response = service.Criar(dto);
-		ResponseEntity.ok(HttpStatus.CREATED);
-		return ResponseEntity.ok(response);
+		return ResponseEntity.status(HttpStatus.CREATED).body(response);
+
 	}
 
 	@GetMapping("/{id}")
-	public ResponseEntity<CursoResponse> ProcurarId(Long id) {
+	public ResponseEntity<CursoResponse> ProcurarId(@PathVariable  Long id) {
 		CursoResponse response = service.Procurar(id);
 		return ResponseEntity.ok(response);
 	}
