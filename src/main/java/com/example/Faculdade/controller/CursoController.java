@@ -20,7 +20,7 @@ import com.example.Faculdade.service.CursoService;
 import jakarta.validation.Valid;
 
 @RestController
-@RequestMapping("/curso")
+@RequestMapping("/cursos")
 public class CursoController {
 
 	private final CursoService service;
